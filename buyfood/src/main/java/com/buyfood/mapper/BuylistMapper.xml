@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buyfood.dao.BuylistMapper">
+	<!-- 配置购物车类和数据库对应 -->
+	<resultMap type="com.buyfood.model.BuylistE" id="Buylist">
+		<id property="id" column="id" />
+		<result property="userid" column="userid" />
+		<result property="foodID" column="foodID" />
+		<result property="foodNum" column="foodNum" />
+		<result property="addtime" column="addtime" />
+		<result property="state" column="state" />
+		<association property="listFood" javaType="food">
+			<id property="id" column="id" />
+			<result property="name" column="name" />
+			<result property="price" column="price" />
+			<result property="info" column="info" />
+			<result property="addtime" column="addtime" />
+			<result property="pic" column="pic" />
+			<result property="type" column="type" />
+			<result property="num" column="num" />
+		</association>
+	</resultMap>
+	<select id="getListByUserId" parameterType="Integer" resultType="BuylistE">
+		select * from buyfood_buylist where userid = #{userid} and state = 0
+	</select>
+
+	<!-- 得到当前用户所有的购物车商品 -->
+	<select id="getAllList" parameterType="int" resultMap="Buylist">
+		select *
+		from buyfood_buylist buylist,buyfood_food food where
+		buylist.userid=#{userId} and buylist.state=0 and
+		buylist.foodID=food.id
+	</select>
+
+	<!-- 当前用户加入商品到购物车 -->
+	<insert id="addBuyList" parameterType="Map">
+		insert into
+		buyfood_buylist(userid,foodID,foodNum,addtime,state)
+		values(#{userId},#{foodId},#{foodNum},#{addTime},0)
+
+	</insert>
+
+	<!-- 当前用户删除购物车中一件商品 -->
+	<delete id="delBuyList" parameterType="int">
+		delete from
+		buyfood_buylist where id = #{buyId}
+	</delete>
+
+	<!-- 改变购物车中的商品信息 物品数量 -->
+	<update id="changeBuyList" parameterType="Map">
+		update buyfood_buylist
+		set foodNum = #{foodNum} where id = #{buyId}
+	</update>
+
+	<!-- 修改商品状态 -->
+	<update id="updateBuyListStatu" parameterType="Integer">
+		update
+		buyfood_buylist set state = 1 where id = #{id}
+	</update>
+</mapper>

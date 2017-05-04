@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/border.css">
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/123.js"></script>
+<script src="../js/border.js"></script>
+<script type="text/javascript" src="../js/important.js"></script>
+<script type="text/javascript" src="../js/preview.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
+
+<title>注册界面</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container-fluid">
+							<a class="btn btn-navbar"
+								data-target=".navbar-responsive-collapse" data-toggle="collapse"></a>
+							<a class="brand" href="#">网站名</a>
+							<div class="nav-collapse collapse navbar-responsive-collapse">
+								<ul class="nav">
+									<li><a href="index.html">所有商品</a></li>
+									<li><a href="shopcar.html">购物车</a></li>
+								</ul>
+								<ul class="nav pull-right">
+									<li class="divider-vertical"></li>
+									<li class="dropdown"><a class="dropdown-toggle"
+										data-toggle="dropdown" href="#">个人中心</a>
+										<ul class="dropdown-menu">
+											<li><a href="login.html">登录</a></li>
+											<li><a href="orderlist.html">订单</a></li>
+										</ul></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+
+					<fieldset>
+						<legend>
+							<strong>注册</strong>
+						</legend>
+						<p>
+							<label>头像上传</label>
+						</p>
+						<p>
+						<input type="file" id="pic" name="pic" />
+						<div id="preview"></div>
+						</p>
+
+						<p>
+							<label>账号</label>
+						</p>
+						<p>
+							<input type="text" id="number" name="loginname" />
+						</p>
+						<p>
+							<label>密码</label>
+						</p>
+						<p>
+							<input type="password" id="password" name="loginpwd" />
+						</p>
+						<p>
+							<label>用户名</label>
+						</p>
+						<p>
+							<input type="text" id="username" name="name" />
+						</p>
+						<p>
+							<label>电话号码</label>
+						</p>
+						<p>
+							<input type="text" id="phonenum" name="usertel" />
+						</p>
+						<p>
+							<label>年龄</label>
+						</p>
+						<p>
+							<select id="age" name="age">
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+							</select>
+						</p>
+						<p>
+							<label>身份证</label>
+						</p>
+						<p>
+							<input type="text" id="idcard" name="idcard" />
+						</p>
+
+						<p>
+							<label>创建类型</label>
+						</p>
+						<p>
+							<select id="groupid" name="groupid">
+								<option value="0">普通用户</option>
+								<option value="1">管理者</option>
+							</select>
+						</p>
+						<p>
+							<input type="submit" value="提交" onclick="regist()">
+						</p>
+					</fieldset>
+					<!-- 	<form> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

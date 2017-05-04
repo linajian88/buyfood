@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.buyfood.dao.OrderlistMapper">
+	
+	<select id="getAllOrderlist" parameterType= "Integer" resultType="orderlistCustom">
+		select 
+		userid , addtime , stat , cause , username , usertel , useraddr , uid
+		from 
+		buyfood_orderlist
+		where userid = #{0}
+	</select>
+	
+	<insert id="insertOrderlist" parameterType="orderlistCustom">
+		insert into buyfood_orderlist values(null,#{userid},#{addtime},#{stat},#{cause},#{username},#{usertel},#{useraddr},#{uid})
+	</insert>
+	
+</mapper>
